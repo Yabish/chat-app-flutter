@@ -1,3 +1,6 @@
+import 'package:chappu/screens/chat_screen.dart';
+import 'package:chappu/screens/login_screen.dart';
+import 'package:chappu/screens/register_screen.dart';
 import 'package:chappu/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -11,15 +14,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
         primaryColor: Colors.teal,
+        scaffoldBackgroundColor: Colors.black,
       ),
-      // home: WelcomeScreen(),
-      initialRoute: '/',
+      initialRoute: WelcomeScreen.id,
       routes: {
-        '/': (context) => const WelcomeScreen(),
-        // '/second': (context) => const SecondScreen(),
+        WelcomeScreen.id: (context) => const WelcomeScreen(),
+        RegisterScreen.id: (context) => const RegisterScreen(),
+        LoginScreen.id: (context) => const LoginScreen(),
+        ChatScreen.id: (context) => const ChatScreen(),
       },
     );
   }
