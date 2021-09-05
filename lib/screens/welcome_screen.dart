@@ -1,6 +1,7 @@
 import 'package:chappu/screens/login_screen.dart';
 import 'package:chappu/screens/register_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static const String id = 'welcome_screen';
@@ -26,14 +27,22 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: [
+                Hero(
+                  tag: 'logo',
+                  child: SizedBox(
+                    child: Image.asset('images/logo.png'),
+                    height: 60,
+                  ),
+                ),
                 Text(
-                  'LOGO GOES HERE....',
+                  "ChatApp",
+                  style: GoogleFonts.pacifico(fontSize: 45),
                 ),
               ],
             ),
             const SizedBox(
-              height: 48,
+              height: 20,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(
@@ -44,7 +53,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 borderRadius: BorderRadius.circular(30),
                 child: MaterialButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, LoginScreen.id);
+                    Navigator.pushNamed(
+                      context,
+                      LoginScreen.id,
+                    );
                   },
                   child: const Text(
                     'LOGIN',
@@ -61,7 +73,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 borderRadius: BorderRadius.circular(30),
                 child: MaterialButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, RegisterScreen.id);
+                    Navigator.pushNamed(
+                      context,
+                      RegisterScreen.id,
+                    );
                   },
                   child: const Text(
                     'REGISTER',
