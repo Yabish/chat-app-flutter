@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "660634397810",
+    "project_id": "chat-app-eb89a",
+    "storage_bucket": "chat-app-eb89a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:660634397810:android:80fe86d13dc3149412a6eb",
+        "android_client_info": {
+          "package_name": "com.devyabish.chappu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "660634397810-bogv5e40e6p2u331na8vgksq4m7o7hnq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB96oCsTADnt_pWC20-GOSeJx0QpVfUA5U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "660634397810-bogv5e40e6p2u331na8vgksq4m7o7hnq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
