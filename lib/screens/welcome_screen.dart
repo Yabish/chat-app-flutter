@@ -1,3 +1,4 @@
+import 'package:chappu/components/button_layout.dart';
 import 'package:chappu/screens/login_screen.dart';
 import 'package:chappu/screens/register_screen.dart';
 import 'package:flutter/material.dart';
@@ -44,45 +45,25 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             const SizedBox(
               height: 20,
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                vertical: 10,
-              ),
-              child: Material(
-                color: Colors.lightBlueAccent,
-                borderRadius: BorderRadius.circular(30),
-                child: MaterialButton(
-                  onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      LoginScreen.id,
-                    );
-                  },
-                  child: const Text(
-                    'LOGIN',
-                  ),
-                ),
-              ),
+            ButtonLayout(
+              title: "LOGIN",
+              onPress: () {
+                Navigator.pushNamed(
+                  context,
+                  LoginScreen.id,
+                );
+              },
+              color: Colors.lightBlueAccent,
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                vertical: 10,
-              ),
-              child: Material(
-                color: Colors.lightBlue,
-                borderRadius: BorderRadius.circular(30),
-                child: MaterialButton(
-                  onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      RegisterScreen.id,
-                    );
-                  },
-                  child: const Text(
-                    'REGISTER',
-                  ),
-                ),
-              ),
+            ButtonLayout(
+              title: "REGISTER",
+              onPress: () {
+                Navigator.pushNamed(
+                  context,
+                  RegisterScreen.id,
+                );
+              },
+              color: Colors.lightBlue,
             ),
           ],
         ),

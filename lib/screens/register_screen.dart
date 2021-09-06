@@ -40,6 +40,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   vertical: 10,
                   horizontal: 20,
                 ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(
+                      32,
+                    ),
+                  ),
+                ),
               ),
             ),
           ],

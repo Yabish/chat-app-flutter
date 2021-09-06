@@ -19,7 +19,37 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          // children: [],
+          children: [
+            Hero(
+              tag: 'logo',
+              child: SizedBox(
+                height: 200,
+                child: Image.asset(
+                  'images/logo.png',
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 48,
+            ),
+            TextField(
+              onChanged: (value) {},
+              decoration: const InputDecoration(
+                hintText: 'Enter Email',
+                contentPadding: EdgeInsets.symmetric(
+                  vertical: 10,
+                  horizontal: 20,
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(
+                      32,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
