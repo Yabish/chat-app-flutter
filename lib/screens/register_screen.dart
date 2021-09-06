@@ -1,4 +1,5 @@
 import 'package:chappu/components/button_layout.dart';
+import 'package:chappu/components/input_textfield.dart';
 import 'package:flutter/material.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -33,44 +34,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
             const SizedBox(
               height: 48,
             ),
-            TextField(
-              onChanged: (value) {},
-              decoration: const InputDecoration(
-                hintText: 'Enter Email',
-                contentPadding: EdgeInsets.symmetric(
-                  vertical: 10,
-                  horizontal: 20,
-                ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(
-                      32,
-                    ),
-                  ),
-                ),
-              ),
+            const InputField(
+              obscureText: false,
+              textHint: "Enter Email",
+              textInputType: TextInputType.emailAddress,
             ),
             const SizedBox(
               height: 10,
             ),
-            TextField(
-              onChanged: (value) {},
-              obscureText: true,
-              decoration: const InputDecoration(
-                hintText: 'Enter Password',
-                contentPadding: EdgeInsets.symmetric(
-                  vertical: 10,
-                  horizontal: 20,
-                ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(
-                      32,
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            const InputField(obscureText: true, textHint: "Enter Password"),
             Hero(
               tag: 'registerButton',
               child: ButtonLayout(
