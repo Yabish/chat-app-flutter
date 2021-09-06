@@ -1,3 +1,5 @@
+import 'package:chappu/components/button_layout.dart';
+import 'package:chappu/components/input_textfield.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -32,21 +34,24 @@ class _LoginScreenState extends State<LoginScreen> {
             const SizedBox(
               height: 48,
             ),
-            TextField(
-              onChanged: (value) {},
-              decoration: const InputDecoration(
-                hintText: 'Enter Email',
-                contentPadding: EdgeInsets.symmetric(
-                  vertical: 10,
-                  horizontal: 20,
-                ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(
-                      32,
-                    ),
-                  ),
-                ),
+            const InputField(
+              obscureText: false,
+              textInputType: TextInputType.emailAddress,
+              textHint: "Enter Email",
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            const InputField(
+              obscureText: true,
+              textHint: "Enter Password",
+            ),
+            Hero(
+              tag: 'loginButton',
+              child: ButtonLayout(
+                title: 'LOGIN',
+                onPress: () {},
+                color: Colors.lightBlueAccent,
               ),
             ),
           ],

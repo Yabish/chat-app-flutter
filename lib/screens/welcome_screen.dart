@@ -45,25 +45,31 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             const SizedBox(
               height: 20,
             ),
-            ButtonLayout(
-              title: "LOGIN",
-              onPress: () {
-                Navigator.pushNamed(
-                  context,
-                  LoginScreen.id,
-                );
-              },
-              color: Colors.lightBlueAccent,
+            Hero(
+              tag: 'loginButton',
+              child: ButtonLayout(
+                title: "LOGIN",
+                onPress: () {
+                  Navigator.pushNamed(
+                    context,
+                    LoginScreen.id,
+                  );
+                },
+                color: Colors.lightBlueAccent,
+              ),
             ),
-            ButtonLayout(
-              title: "REGISTER",
-              onPress: () {
-                Navigator.pushNamed(
-                  context,
-                  RegisterScreen.id,
-                );
-              },
-              color: Colors.lightBlue,
+            Hero(
+              tag: 'registerButton',
+              child: ButtonLayout(
+                title: "REGISTER",
+                onPress: () {
+                  Navigator.pushNamed(
+                    context,
+                    RegisterScreen.id,
+                  );
+                },
+                color: Colors.lightBlue,
+              ),
             ),
           ],
         ),
