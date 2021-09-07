@@ -3,6 +3,7 @@ import 'package:chappu/screens/login_screen.dart';
 import 'package:chappu/screens/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static const String id = 'welcome_screen';
@@ -15,6 +16,14 @@ class WelcomeScreen extends StatefulWidget {
 }
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Firebase.initializeApp().whenComplete(() {
+      setState(() {});
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -3,6 +3,7 @@ import 'package:chappu/screens/login_screen.dart';
 import 'package:chappu/screens/register_screen.dart';
 import 'package:chappu/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,6 +19,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         primaryColor: Colors.teal,
         scaffoldBackgroundColor: Colors.black,
+        snackBarTheme: const SnackBarThemeData().copyWith(
+          backgroundColor: Colors.grey,
+        ),
       ),
       initialRoute: WelcomeScreen.id,
       routes: {

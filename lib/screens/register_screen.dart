@@ -1,7 +1,9 @@
 import 'package:chappu/components/button_layout.dart';
+import 'package:chappu/screens/chat_screen.dart';
 import 'package:chappu/utils/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class RegisterScreen extends StatefulWidget {
   static const String id = 'register_screen';
@@ -12,6 +14,7 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+  final _auth = FirebaseAuth.instance;
   String email = '';
   String password = '';
 
@@ -39,7 +42,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
               height: 48,
             ),
             TextField(
-              onChanged: (value) {},
+              textAlign: TextAlign.center,
+              onChanged: (value) {
+                email = value;
+              },
               keyboardType: TextInputType.emailAddress,
               obscureText: false,
               decoration: kTextFieldDecoreation.copyWith(
@@ -50,7 +56,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
               height: 10,
             ),
             TextField(
-              onChanged: (value) {},
+              textAlign: TextAlign.center,
+              onChanged: (value) {
+                password = value;
+              },
               obscureText: true,
               decoration: kTextFieldDecoreation.copyWith(
                 hintText: 'Enter password',
@@ -60,7 +69,35 @@ class _RegisterScreenState extends State<RegisterScreen> {
               tag: 'registerButton',
               child: ButtonLayout(
                 title: 'REGISTER',
-                onPress: () {},
+                onPress: () async {
+                  if (email != '' && password != '') {
+                    try {
+                      final UserCredential newUser =
+                          await _auth.createUserWithEmailAndPassword(
+                        email: email,
+                        password: password,
+                      );
+
+                      if (newUser.additionalUserInfo?.isNewUser == true) {
+                        Navigator.pushNamed(context, ChatScreen.id);
+                      }
+                    } catch (e) {
+                      print('error $e');
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(e.toString()),
+                        ),
+                      );
+                    }
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text("Please Enter Email and Password"),
+                        backgroundColor: Colors.grey,
+                      ),
+                    );
+                  }
+                },
                 color: Colors.lightBlue,
               ),
             ),
