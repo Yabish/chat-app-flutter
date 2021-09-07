@@ -1,5 +1,6 @@
 import 'package:chappu/components/button_layout.dart';
-import 'package:chappu/components/input_textfield.dart';
+import 'package:chappu/utils/constants.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -11,6 +12,9 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+  String email = '';
+  String password = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,15 +38,24 @@ class _RegisterScreenState extends State<RegisterScreen> {
             const SizedBox(
               height: 48,
             ),
-            const InputField(
+            TextField(
+              onChanged: (value) {},
+              keyboardType: TextInputType.emailAddress,
               obscureText: false,
-              textHint: "Enter Email",
-              textInputType: TextInputType.emailAddress,
+              decoration: kTextFieldDecoreation.copyWith(
+                hintText: "Enter Email",
+              ),
             ),
             const SizedBox(
               height: 10,
             ),
-            const InputField(obscureText: true, textHint: "Enter Password"),
+            TextField(
+              onChanged: (value) {},
+              obscureText: true,
+              decoration: kTextFieldDecoreation.copyWith(
+                hintText: 'Enter password',
+              ),
+            ),
             Hero(
               tag: 'registerButton',
               child: ButtonLayout(
