@@ -77,11 +77,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         email: email,
                         password: password,
                       );
+                      // setState(() {
+                      //   showSpinner = false;
+                      // });
 
                       if (newUser.additionalUserInfo?.isNewUser == true) {
                         Navigator.pushNamed(context, ChatScreen.id);
                       }
                     } catch (e) {
+                      // setState(() {
+                      //   showSpinner = false;
+                      // });
                       print('error $e');
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
