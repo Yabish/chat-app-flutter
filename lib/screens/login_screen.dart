@@ -17,6 +17,34 @@ class _LoginScreenState extends State<LoginScreen> {
   String email = '';
   String password = '';
 
+  void login() async {
+    if (email != '' && password != '') {
+      try {
+        final UserCredential user = await _auth.signInWithEmailAndPassword(
+          email: email,
+          password: password,
+        );
+
+        if (user.user?.uid != null) {
+          Navigator.pushNamed(context, ChatScreen.id);
+        }
+      } catch (e) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(e.toString()),
+          ),
+        );
+      }
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Please Enter Email and Password"),
+          backgroundColor: Colors.grey,
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,38 +97,7 @@ class _LoginScreenState extends State<LoginScreen> {
               child: ButtonLayout(
                 title: 'LOGIN',
                 onPress: () async {
-                  if (email != '' && password != '') {
-                    try {
-                      final UserCredential user =
-                          await _auth.signInWithEmailAndPassword(
-                        email: email,
-                        password: password,
-                      );
-
-                      print(' User-------- ${user.user?.uid}');
-
-                      if (user.user?.uid != null) {
-                        Navigator.pushNamed(context, ChatScreen.id);
-                      }
-                    } catch (e) {
-                      // setState(() {
-                      //   showSpinner = false;
-                      // });
-                      print('error $e');
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(e.toString()),
-                        ),
-                      );
-                    }
-                  } else {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text("Please Enter Email and Password"),
-                        backgroundColor: Colors.grey,
-                      ),
-                    );
-                  }
+                  login();
                 },
                 color: Colors.lightBlueAccent,
               ),
